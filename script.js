@@ -3,6 +3,6 @@ var txtInput = document.querySelector("#txt-input");
 
 var txtValue = txtInput.value;
 
-txtInput.addEventListener("onchange", () => {
+btnTranslate.addEventListener("click", () => {
     console.log(txtInput.value);
 })
