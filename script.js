@@ -1,4 +1,4 @@
-var btnTranslate = document.querySelector("#btn-translate");
+var btnTranslate = document.querySelector(".btn-translate");
 var txtInput = document.querySelector("#txt-input");
 var outputText = document.querySelector("#output-text");
 
@@ -17,8 +17,12 @@ const errorHandler = error => {
 
 btnTranslate.addEventListener("click", () => {
     var inputText = txtInput.value;
-    fetch(getTranslationUrl(inputText))
+    if(inputText === "") {
+        outputText.innerText = "Please enter text to translate!!"
+    } else {
+        fetch(getTranslationUrl(inputText))
         .then(response => response.json())
         .then(json => outputText.innerText = (json.contents.translated))
         .catch(errorHandler)
+    }
 })
